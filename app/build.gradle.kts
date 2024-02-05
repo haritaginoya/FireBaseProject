@@ -54,4 +54,5 @@ dependencies {
     implementation("com.google.firebase:firebase-database")
     implementation("com.google.firebase:firebase-storage")
     implementation("androidx.browser:browser:1.7.0")
+    implementation("com.theartofdev.edmodo:android-image-cropper:2.8.+")
 }
