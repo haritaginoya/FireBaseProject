@@ -44,9 +44,9 @@ class AddProduct : AppCompatActivity() {
         add = findViewById(R.id.add)
         progress = findViewById(R.id.progress)
 
-        selct_photo.setOnClickListener {
-            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).start(this);
-        }
+            selct_photo.setOnClickListener {
+                CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).start(this)
+            }
         val storageRef = storage.reference
 
         val mountainImagesRef = storageRef.child("Product/${product_name.text}${Random.nextInt(10000)}.jpg")
@@ -54,7 +54,7 @@ class AddProduct : AppCompatActivity() {
         mountainImagesRef.name == mountainImagesRef.name // true
         mountainImagesRef.path == mountainImagesRef.path // false
         add.setOnClickListener {
-progress.visibility = View.VISIBLE
+        progress.visibility = View.VISIBLE
             selct_photo.isDrawingCacheEnabled = true
             selct_photo.buildDrawingCache()
             val bitmap = (selct_photo.drawable as BitmapDrawable).bitmap
@@ -84,6 +84,8 @@ progress.visibility = View.VISIBLE
                         myRef.setValue(data)
                         Log.d("=-=-==", "onCreate: $data")
                         progress.visibility = View.GONE
+                        startActivity(Intent(this,HomePage::class.java))
+                        finish()
                     } else {
                         // Handle failures
                         // ...
